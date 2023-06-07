@@ -1,0 +1,20 @@
+public class Solution {
+	public static ArrayList<ArrayList<Long>> printPascal(int n) {
+                 // Write your code here.
+		ArrayList<ArrayList<Long>> ans = new ArrayList<>();
+        
+
+        for(int i=0;i<n;i++){
+            ArrayList<Long> ans1 = new ArrayList<>();
+            for(int j=0;j<i+1;j++){
+                if(j==0||j==i){
+                    ans1.add((long)1);
+                }else{
+                    ans1.add(ans.get(i-1).get(j-1)+ans.get(i-1).get(j));
+                }
+            }
+            ans.add(new ArrayList(ans1));
+        }
+		return ans;
+	}
+}
